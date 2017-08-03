@@ -2,4 +2,4 @@
 oauth2 demo
 
 
-[简书](http://www.jianshu.com)
+[登录China.cn并授权](https://www.china.com/oauth2/authorize?response_type=code&client_id=test&state=xyz&redirect_uri=http://test.local&debug=show)
