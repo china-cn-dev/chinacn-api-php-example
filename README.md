@@ -2,4 +2,4 @@
 oauth2 demo
 
 
-登录 <http://iamdustan.com/reworkcss_ast_explorer/>.
+[简书](http://www.jianshu.com)
