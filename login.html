@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>获取code</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.0.0.js"></script>
+
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+
+        .title {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body class="bs-docs-home">
+<div class="container">
+    <div class="content row">
+        <div class="title"><h1>China.cn API Demo</h1></div>
+        <form class="form-horizontal" action="https://www.china.cn/oauth2/authorize" method="post">
+        <!--<form class="form-horizontal" action="http://api.chinaoff.cn/v2/oauth2/authorize" method="post">-->
+            <input type="hidden" name="response_type" value="code">
+            <input type="hidden" name="client_id" value="demo">
+            <input type="hidden" name="state" value="demo">
+            <input type="hidden" name="redirect_uri" value="http://test.local/token.html">
+            <input class="btn btn-info" type="submit" value="登录China.cn并授权"/>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
