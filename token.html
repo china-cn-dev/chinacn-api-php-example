@@ -45,6 +45,7 @@
             <input type="hidden" name="grant_type" value="authorization_code">
             <input type="hidden" name="client_id" value="demo">
             <input type="hidden" name="code" value="">
+            <input type="hidden" name="client_secret" value="fe01ce2a7fbac8fafaed7c982a04e229">
             <button class="btn btn-info" id="get_token">获取token</button>
     </div>
 </div>
@@ -77,13 +78,15 @@
         var gcode = $('input[name="code"]').val();
         var gclient_id = $('input[name="client_id"]').val();
         var ggrant_type = $('input[name="grant_type"]').val();
+        var gclient_secret = $('input[name="client_secret"]').val();
 
         var url = 'https://www.china.cn/api/v2/oauth2/token';
 
         $.post(url, {
             code : gcode,
             client_id : gclient_id,
-            grant_type : ggrant_type
+            grant_type : ggrant_type,
+            client_secret : gclient_secret,
         }, function(ret){
             var ret = eval('(' + ret + ')');
 
@@ -101,7 +104,10 @@
                 $('#refresh_token').html('<h3>refresh_token : ' + ret.data.refresh_token + '</h3>');
                 $('#open_id').html('<h3>open_id : ' + ret.data.open_id + '</h3>');
                 $('#expires_in').html('<h3>expires_in : ' + ret.data.expires_in + '</h3>');
-                $('#get_token').addClass('hidden');
+                $('#get_token').html('更新token');
+                $('input[name="code"]').val(ret.data.refresh_token);
+
+                $('input[name="grant_type"]').val('refresh_token');
             }
         });
     });
